@@ -43,4 +43,9 @@ export class ProductsCollectionComponent implements OnDestroy, OnInit {
   | como parámetro el identificador del producto.                    |
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+  comprarProducto(productoRecibido: Product): void {
+    // console.log('Producto recibido: ', productoRecibido);
+    console.log('Pendiente de redirigir a: /product/' + JSON.stringify(productoRecibido.id));
+  }
+
 }
