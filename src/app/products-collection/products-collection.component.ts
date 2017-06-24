@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/switchMap';
+import { Router } from '@angular/router';
 
 import { Product } from '../product';
 import { ProductFilter } from '../product-filter';
@@ -16,7 +17,10 @@ export class ProductsCollectionComponent implements OnDestroy, OnInit {
   products: Product[];
   private _filterStream$: Subject<ProductFilter> = new Subject;
 
-  constructor(private _productService: ProductService) { }
+  constructor(
+    private _productService: ProductService,
+    private _router: Router
+  ) { }
 
   ngOnInit(): void {
     this._filterStream$
@@ -45,7 +49,7 @@ export class ProductsCollectionComponent implements OnDestroy, OnInit {
 
   comprarProducto(productoRecibido: Product): void {
     // console.log('Producto recibido: ', productoRecibido);
-    console.log('Pendiente de redirigir a: /product/' + JSON.stringify(productoRecibido.id));
+    this._router.navigate(['products', JSON.stringify(productoRecibido.id)]);
   }
 
 }
