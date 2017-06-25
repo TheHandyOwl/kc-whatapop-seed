@@ -3,11 +3,11 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { Product } from './product';
+import { ProductService } from './product.service';
+import { ProductFilter } from './product-filter';
 
 @Injectable()
 export class SoldProductsResolveService implements Resolve<Product[]> {
-
-  resolve(route: ActivatedRouteSnapshot): Observable<Product[]> {
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     | Yellow Path                                                      |
@@ -23,7 +23,11 @@ export class SoldProductsResolveService implements Resolve<Product[]> {
     |    ProductService, que tendrás que inyectar como dependencia.    |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-    return null;
+    //return null;
+  constructor(private _productService: ProductService) { }
+  resolve(route: ActivatedRouteSnapshot): Observable<Product[]> {
+    const filter: ProductFilter = { state: 'sold' };
+    return this._productService.getProducts(filter);
   }
 
 }
