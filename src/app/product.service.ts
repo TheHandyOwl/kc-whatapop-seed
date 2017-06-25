@@ -70,6 +70,9 @@ export class ProductService {
       if ( filter.category && filter.category !== '0' ) {
         queryParams.set('category.id', filter.category);
       }
+      if ( filter.state ) {
+        queryParams.set('state', filter.state);
+      }
     }
 
     const options = new RequestOptions({params: queryParams});
