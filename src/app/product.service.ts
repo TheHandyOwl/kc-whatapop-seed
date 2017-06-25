@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -59,20 +59,23 @@ export class ProductService {
     |       state=x (siendo x el estado)                               |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-
-    let queryParams = '?_sort=publishedDate&_order=DESC';
+    const queryParams = new URLSearchParams();
+    queryParams.set('_sort', 'publishedDate');
+    queryParams.set('_order', 'DESC');
 
     if ( filter ) {
       if ( filter.text ) {
-        queryParams += '&q=' + filter.text;
+        queryParams.set('q', filter.text);
       }
-      if ( filter.category ) {
-        queryParams += '&category.id=' + filter.category;
+      if ( filter.category && filter.category !== '0' ) {
+        queryParams.set('category.id', filter.category);
       }
     }
 
+    const options = new RequestOptions({params: queryParams});
+
     return this._http
-      .get(`${this._backendUri}/products${queryParams}`)
+      .get(`${this._backendUri}/products`, options)
       .map((data: Response): Product[] => Product.fromJsonToList(data.json()));
   }
 
