@@ -59,9 +59,18 @@ export class ProductService {
     |       state=x (siendo x el estado)                               |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-    let queryParams = new URLSearchParams();
+    const queryParams = new URLSearchParams();
     queryParams.set('_sort', 'publishedDate');
     queryParams.set('_order', 'DESC');
+
+    if ( filter ) {
+      if ( filter.text ) {
+        queryParams.set('q', filter.text);
+      }
+      if ( filter.category && filter.category !== '0' ) {
+        queryParams.set('category.id', filter.category);
+      }
+    }
 
     const options = new RequestOptions({params: queryParams});
 
