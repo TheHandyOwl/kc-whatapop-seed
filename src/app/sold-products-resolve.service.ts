@@ -1,21 +1,13 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { Http, Response, RequestOptions, URLSearchParams } from '@angular/http';
 
 import { Product } from './product';
-import { BackendUri } from './app-settings';
+import { ProductService } from './product.service';
+import { ProductFilter } from './product-filter';
 
 @Injectable()
 export class SoldProductsResolveService implements Resolve<Product[]> {
-
-  constructor(
-    private _http: Http,
-    @Inject(BackendUri) private _backendUri) { }
-
-  resolve(
-    route: ActivatedRouteSnapshot
-    ): Observable<Product[]> {
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     | Yellow Path                                                      |
@@ -32,16 +24,10 @@ export class SoldProductsResolveService implements Resolve<Product[]> {
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     //return null;
-    const queryParams = new URLSearchParams();
-    queryParams.set('_sort', 'publishedDate');
-    queryParams.set('_order', 'DESC');
-    queryParams.set('state', 'sold');
-
-    const options = new RequestOptions({params: queryParams});
-
-    return this._http
-      .get(`${this._backendUri}/products`, options)
-      .map((data: Response): Product[] => Product.fromJsonToList(data.json()));
+  constructor(private _productService: ProductService) { }
+  resolve(route: ActivatedRouteSnapshot): Observable<Product[]> {
+    const filter: ProductFilter = { state: 'sold' };
+    return this._productService.getProducts(filter);
   }
 
 }
