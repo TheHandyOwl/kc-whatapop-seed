@@ -34,4 +34,31 @@ export class ProductFilterComponent implements OnDestroy, OnInit {
     this.onSearch.emit(this.productFilter);
   }
 
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+  | Red Wine Path                                                    |
+  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+  | Limpiamos todos los filtros a la vez                             |
+  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+  textReady(): void {
+    this.notifyHost();
+  }
+  minPriceReady(): void {
+    this.notifyHost();
+  }
+  maxPriceReady(): void {
+    this.notifyHost();
+  }
+
+  clearSearch(): void {
+    this.productFilter.text = null;
+    this.productFilter.category = null;
+    this.productFilter.state = null;
+    this.productFilter.minPrice = null;
+    this.productFilter.maxPrice = null;
+    this.productFilter.sort = null;
+    this.productFilter.order = null;
+    this.onSearch.emit(this.productFilter);
+  }
+
 }
