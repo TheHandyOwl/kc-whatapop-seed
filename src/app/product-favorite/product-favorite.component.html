@@ -1,0 +1,21 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| White Broken Path                                                |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| El hijo de todos, con los botones de favoritos                   |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+    <button
+      *ngIf="isFavorite(data.id) === false"
+      class="button success expanded"
+      (click)="notificarFavorito(data)"
+    >
+      Añadir favorito
+    </button>
+
+    <button
+      *ngIf="isFavorite(data.id) === true"
+      class="button alert expanded"
+      (click)="notificarFavorito(data)"
+    >
+      Quitar favorito
+    </button>

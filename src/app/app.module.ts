@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
+import { Ng2Webstorage } from 'ng2-webstorage';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,8 @@ import { SoldProductsResolveService } from './sold-products-resolve.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './user.service';
 import { PublicationDatePipe } from './publication-date.pipe';
+import { ProductFavoriteComponent } from './product-favorite/product-favorite.component';
+import { FavoriteService } from './favorite.service';
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 | Blue Path                                                        |
@@ -37,7 +40,8 @@ import { PublicationDatePipe } from './publication-date.pipe';
     ProductComponent,
     ProductsCollectionComponent,
     UserProfileComponent,
-    PublicationDatePipe
+    PublicationDatePipe,
+    ProductFavoriteComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ import { PublicationDatePipe } from './publication-date.pipe';
     FormsModule,
     HttpModule,
     ConfirmDialogModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Ng2Webstorage
   ],
   providers: [
     BackendUriProvider,
@@ -54,7 +59,8 @@ import { PublicationDatePipe } from './publication-date.pipe';
     ProductDetailsResolveService,
     ProductService,
     SoldProductsResolveService,
-    UserService
+    UserService,
+    FavoriteService
   ],
   bootstrap: [AppComponent]
 })
