@@ -11,6 +11,8 @@ export class ProductComponent {
 
   @Input() data: Product;
 
+  @Output() clickEnComprarProducto = new EventEmitter<Product>();
+
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   | Green Path                                                       |
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -21,8 +23,6 @@ export class ProductComponent {
   | de este componente, necesitas, además, un manejador para el      |
   | mismo.                                                           |
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
-  @Output() clickEnComprarProducto = new EventEmitter<Product>();
 
   notificarCompraProducto(productoComprado: Product) {
     // console.log('Producto comprado', productoComprado);
