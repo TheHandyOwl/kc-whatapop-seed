@@ -21,7 +21,8 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
     private _productService: ProductService,
     private _route: ActivatedRoute,
     private _router: Router,
-    private _confirmationService: ConfirmationService) { }
+    private _confirmationService: ConfirmationService
+  ) { }
 
   ngOnInit(): void {
     this._route.data.forEach((data: { product: Product }) => this.product = data.product);

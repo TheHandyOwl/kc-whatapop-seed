@@ -27,6 +27,16 @@
     <app-user-profile [userId]="product.seller.id"></app-user-profile>
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    | White Broken Path                                                |
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    | Favoritos sincronizados en vista detalle y vista colección       |
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+    <app-product-favorite
+      [data]="product"
+    ></app-product-favorite>
+    
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     | Purple Path                                                      |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     | Aplica el siguiente formato al precio del producto:              |
@@ -41,6 +51,12 @@
     </button>
     <button (click)="goBack()" class="warning button expanded">Volver</button>
   </div>
-  <!-- Confirmation alert -->
-  <p-confirmDialog header="Confirmación de compra" width="625" #cd></p-confirmDialog>
-</div>
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| White Broken Path                                                |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| El padre de todos se queda con la etiqueta                       |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!-- Confirmation alert -->
+<p-confirmDialog header="AVISO" width="625" #cd></p-confirmDialog>
