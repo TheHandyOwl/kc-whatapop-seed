@@ -38,7 +38,7 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
   private _buyProduct(): void {
     this._productSubscription = this._productService
       .buyProduct(this.product.id)
-      .subscribe(() => this._showPurchaseConfirmation())
+      .subscribe(() => this._showPurchaseConfirmation());
   }
 
   private _showPurchaseConfirmation(): void {

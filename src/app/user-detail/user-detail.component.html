@@ -1,0 +1,29 @@
+<div class="medium-4 columns"><h3>SOLO ESTO</h3></div>
+<div class="row" *ngIf="user">
+  <div class="medium-4 columns">
+    <img [src]="user.avatar" class="thumbnail" />
+  </div>
+  <div class="medium-8 columns">
+    <h3>{{ user.name }}</h3>
+    <p>
+      <span>
+        {{ user.nick }}
+      </span>
+      <span>
+        {{ user.latitude }}
+      </span>
+      <span>
+        {{ user.longitude }}
+      </span>
+      <span>
+        {{ user.email }}
+      </span>
+    </p>
+    <button (click)="goBack()" class="warning button expanded">Volver</button>
+
+  </div>
+</div>
+<div class="medium-4 columns"><h3>Y ESTO</h3></div>
+
+<!-- Confirmation alert -->
+<p-confirmDialog header="AVISO" width="625" #cd></p-confirmDialog>

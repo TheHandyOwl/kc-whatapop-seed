@@ -48,7 +48,6 @@ export class ProductsCollectionComponent implements OnDestroy, OnInit {
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   comprarProducto(productoRecibido: Product): void {
-    // console.log('Producto recibido: ', productoRecibido);
     this._router.navigate(['products', JSON.stringify(productoRecibido.id)]);
   }
 
