@@ -2,26 +2,11 @@
   <div class="small-12 large-12 columns">
     <app-product-filter (onSearch)="filterCollection($event)"></app-product-filter>
   </div>
-  <div *ngIf="products?.length > 0" class="small-up-2 medium-up-4 large-up-6">
-
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    | Green Path                                                       |
-    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-    | Suscribe el componente ProductComponent al evento que hayas      |
-    | definido en él para notificar los clics sobre los productos.     |
-    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
-    <app-product
-      *ngFor="let product of products"
-      [data]="product"
-      class="column"
-      (clickEnComprarProducto)="comprarProducto($event)"
-    >
-    </app-product>
-  </div>
-  <div *ngIf="products?.length === 0" class="text-center">
-    <span>No se han encontrado productos.</span>
-  </div>
+</div>
+<div>
+<app-products-collection-list
+    [products]="products"
+  ></app-products-collection-list>
 </div>
 <div class="text-center">
 
