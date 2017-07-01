@@ -1,0 +1,14 @@
+.avatarImage {
+    /* valores para el tamaño del círculo */
+    height: 100px;
+    width: 100px;
+    /* valores independientes del tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+    /* centrando la imagen */
+    display: block;
+    margin: auto;
+    padding: 5px;
+}

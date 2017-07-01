@@ -27,6 +27,7 @@ import { FavoriteService } from './favorite.service';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserDetailResolveService } from 'app/user-detail-resolve.service';
 import { ProductsCollectionListComponent } from './products-collection-list/products-collection-list.component';
+import { ItemsStatePipe } from './items-state.pipe';
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 | Blue Path                                                        |
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -45,7 +46,8 @@ import { ProductsCollectionListComponent } from './products-collection-list/prod
     PublicationDatePipe,
     ProductFavoriteComponent,
     UserDetailComponent,
-    ProductsCollectionListComponent
+    ProductsCollectionListComponent,
+    ItemsStatePipe
   ],
   imports: [
     BrowserModule,

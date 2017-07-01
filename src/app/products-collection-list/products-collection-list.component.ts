@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Product } from './../product';
@@ -9,15 +9,12 @@ import { ProductFilter } from './../product-filter';
   templateUrl: './products-collection-list.component.html',
   styleUrls: ['./products-collection-list.component.css']
 })
-export class ProductsCollectionListComponent implements OnInit {
+export class ProductsCollectionListComponent {
 
   @Input() products: Product[];
-  @Input() filter: ProductFilter;
+  @Input() itemsList: ProductFilter;
 
   constructor( private _router: Router ) { }
-
-  ngOnInit() {
-  }
 
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   | Green Path                                                       |

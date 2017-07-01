@@ -8,13 +8,20 @@
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
     <app-product
-      *ngFor="let product of products"
+      *ngFor="let product of products | itemsState: itemsList"
       [data]="product"
       class="column"
       (clickEnComprarProducto)="comprarProducto($event)"
     >
     </app-product>
   </div>
-  <div *ngIf="products?.length === 0" class="text-center">
+  
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+  | Brick Red Path                                                   |
+  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+  | Al filtrar productos la vista engaña porque realmente no los hay |
+  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  
+  <div *ngIf="(products | itemsState: itemsList)?.length === 0" class="text-center">
     <span>No se han encontrado productos.</span>
   </div>

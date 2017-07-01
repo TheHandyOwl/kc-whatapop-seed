@@ -45,7 +45,9 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
     this._confirmationService.confirm({
       rejectVisible: false,
       message: 'Producto comprado. ¡Enhorabuena!',
-      accept: () => this._router.navigate(['/product'])
+      // Por usabilidad navegamos a la ruta anterior, no la principal
+      //accept: () => this._router.navigate(['/product'])
+      accept: () => this.goBack()
     });
   }
 

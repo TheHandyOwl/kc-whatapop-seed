@@ -27,11 +27,22 @@ const routes: Routes = [
       products: SoldProductsResolveService
     }
   },
+
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+  | Brick Red Path                                                   |
+  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+  | Ruta nueva para los usuarios, que muestra                        |
+  |  - Objetos de este usuario que tenemos marcados como favoritos   |
+  |  - Objetos en venta de este usuario                              |
+  |  - Objetos vendidos por este usuario                             |
+  |  - Todos los objetos de este usuario                             |
+  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
   {
     path: 'users/:userId',
     component: UserDetailComponent,
     resolve: {
-      product: UserDetailResolveService
+      products: UserDetailResolveService
     }
   },
   {
