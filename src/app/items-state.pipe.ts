@@ -17,7 +17,6 @@ export class ItemsStatePipe implements PipeTransform {
   constructor (private _favoriteService: FavoriteService) { }
 
   transform(products: Product[], itemsList?: String): Product[] {
-console.log('I:',itemsList);
     if (typeof products !== 'undefined') {
       return products.filter(product => {
         if (!itemsList) {
