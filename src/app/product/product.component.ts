@@ -25,7 +25,6 @@ export class ProductComponent {
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   notificarCompraProducto(productoComprado: Product) {
-    // console.log('Producto comprado', productoComprado);
     this.clickEnComprarProducto.emit(productoComprado);
   }
 

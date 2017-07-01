@@ -4,6 +4,12 @@
 | Añadimos los nuevos elementos de filtrado                        |
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| Brick Red Path                                                   |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| Añadimos al vendedor                                             |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 export interface ProductFilter {
     text?: string;
     category?: string;
@@ -12,4 +18,5 @@ export interface ProductFilter {
     maxPrice?: number;
     sort?: string;
     order?: string;
+    seller?: string;
 }
