@@ -6,17 +6,41 @@
     -->
   <img [src]="user?.avatar" class="avatarImage" />
 </div>
-  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | Brick Red Path                                                   |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
-  | Nueva vista con el mapa aquí abajo, y luego                      |
-  | los productos filtrados con pipe según su estado                 |
-  | - Productos guardados como favoritos de este usuario             |
-  | - Productos en venta                                             |
-  | - Productos vendidos                                             |
-  | - Todos sus productos                                            |
-  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| Google Maps Path                                                 |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| Aprovechando longitud y latitud para practicar                   |
+| Escondo el comentario con una clase css                          |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <div class="row" *ngIf="user">
+  <div class="medium-12 columns">
+    <span>
+      <agm-map [latitude]="user?.latitude" [longitude]="user?.longitude" [zoom]="18">
+        <agm-marker [latitude]=" user?.latitude" [longitude]="user?.longitude"></agm-marker>
+      </agm-map>
+    </span>
+  </div>
+  <div class="medium-12 columns hidden">
+    <p>El resultado de aquí arriba es un mapa, pero Google necesita un APIKey que NO escribo explícitamente en el repo.</p>
+    <p>Por tiempo, tampoco voy a sacar a una variable externa que no se suba al repo porque el resultado visible sería el mismo, un error porque no está configurado.</p>
+    <p>Si tienes una API key indícala en el archivo app.module.ts, en la parte de @NgModule(&#123; ... , imports: [AgnCoreModule.forRoot(&#123; apiKey: &#39;YOUR_KEY&#39;&#125;)], ... &#125;)</p>
+    <p>Más información en la web oficial del complemento <a href="https://angular-maps.com/guides/getting-started/">Angular Google Maps</a> o <a href="https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en#key">genera una API key gratis en Google</a></p>
+    <p>Gracias por tu comprensión ... en mi ordenador funciona!!!</p>
+  </div>
+</div>
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| Brick Red Path                                                   |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+| Nueva vista con el mapa aquí abajo, y luego                      |
+| los productos filtrados con pipe según su estado                 |
+| - Productos guardados como favoritos de este usuario             |
+| - Productos en venta                                             |
+| - Productos vendidos                                             |
+| - Todos sus productos                                            |
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<div class="row">
   <div class="medium-12 columns">
     <button (click)="goBack()" class="warning button expanded">Volver</button>
   </div>
