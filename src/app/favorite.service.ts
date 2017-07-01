@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { LocalStorageService } from 'ng2-webstorage';
-import { ConfirmationService } from 'primeng/primeng';
 
 import { Product } from './product';
 
@@ -9,8 +8,7 @@ import { Product } from './product';
 export class FavoriteService {
 
   constructor(
-    private localStorage: LocalStorageService,
-    private _confirmationService: ConfirmationService
+    private localStorage: LocalStorageService
     ) { }
 
   addFavorite(listaProductosId, productId: number): void {
@@ -57,16 +55,11 @@ export class FavoriteService {
       position = favorites.indexOf(productoFavorito.id);
 
       if (position === -1) {
-        this._confirmationService.confirm({
-          message: `¿Deseas añadir '${productoFavorito.name}' a tu lista de favoritos?`,
-          accept: () => this.addFavorite(favorites, productoFavorito.id)
-        });
+        this.addFavorite(favorites, productoFavorito.id);
       } else {
-        this._confirmationService.confirm({
-          message: `¿Deseas eliminar '${productoFavorito.name}' de tu lista de favoritos?`,
-          accept: () => this.delFavorite(favorites, position)
-        });
+        this.delFavorite(favorites, position);
       }
+
     } else {
       favorites = [];
       this.addFavorite(favorites, productoFavorito.id);

@@ -20,7 +20,6 @@ import 'moment/locale/es';
 })
 export class PublicationDatePipe implements PipeTransform {
     transform(fecha: Number): String {
-        //console.log('Tipo: ', typeof(fecha), ' - valor: ', fecha);
         return moment(fecha).fromNow();
     }
 }

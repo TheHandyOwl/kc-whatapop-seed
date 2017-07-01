@@ -6,7 +6,7 @@
   </div>
   <div>
     <p class="text-center">
-      <strong>{{ user?.name }}</strong> | {{ user?.nick }}
+        <strong><a routerLink="/users/{{ user?.id }}">{{ user?.name }}</a></strong> | {{ user?.nick }}
     </p>
   </div>
 </div>
