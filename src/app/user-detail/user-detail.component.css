@@ -1,3 +1,6 @@
+div.hidden {
+    display: none;
+}
 .avatarImage {
     /* valores para el tamaño del círculo */
     height: 100px;
@@ -11,4 +14,7 @@
     display: block;
     margin: auto;
     padding: 5px;
+}
+agm-map {
+  height: 250px;
 }
