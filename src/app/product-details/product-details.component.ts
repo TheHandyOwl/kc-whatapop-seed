@@ -38,14 +38,16 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
   private _buyProduct(): void {
     this._productSubscription = this._productService
       .buyProduct(this.product.id)
-      .subscribe(() => this._showPurchaseConfirmation())
+      .subscribe(() => this._showPurchaseConfirmation());
   }
 
   private _showPurchaseConfirmation(): void {
     this._confirmationService.confirm({
       rejectVisible: false,
       message: 'Producto comprado. ¡Enhorabuena!',
-      accept: () => this._router.navigate(['/product'])
+      // Por usabilidad navegamos a la ruta anterior, no la principal
+      //accept: () => this._router.navigate(['/product'])
+      accept: () => this.goBack()
     });
   }
 

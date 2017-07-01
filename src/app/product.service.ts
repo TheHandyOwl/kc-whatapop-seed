@@ -65,6 +65,12 @@ export class ProductService {
     | Añadimos las neuvas condiciones de filtrado                      |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    | Brick Red Path                                                   |
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    | Añadimos filtro de vendedor                                      |
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
     const queryParams = new URLSearchParams();
     queryParams.set('_sort', 'publishedDate');
     queryParams.set('_order', 'DESC');
@@ -92,11 +98,9 @@ export class ProductService {
       }
       if ( filter.minPrice && +filter.minPrice % 1 === 0 ) {
         queryParams.set('price_gte', filter.minPrice.toString());
-        console.log('minPrice: ', filter.minPrice);
       }
       if ( filter.maxPrice && +filter.maxPrice % 1 === 0 ) {
         queryParams.set('price_lte', filter.maxPrice.toString());
-        console.log('maxPrice: ', filter.maxPrice);
       }
       if ( filter.sort && filter.sort !== '-') {
         queryParams.set('_sort', filter.sort);
@@ -104,6 +108,10 @@ export class ProductService {
       if ( filter.order && filter.order !== '-') {
         queryParams.set('_order', filter.order);
       }
+      if ( filter.seller && +filter.seller % 1 === 0) {
+        queryParams.set('seller.id', filter.seller);
+      }
+
     }
 
     const options = new RequestOptions({params: queryParams});

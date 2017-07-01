@@ -1,0 +1,46 @@
+<div class="medium-12 columns">
+  <h2>User: {{ user?.nick }}</h2>
+  <!--
+    La carga de esta imagen vuelca un error 404, pero carga la imagen???
+    http://localhost:4200/null 404 (Not Found)
+    -->
+  <img [src]="user?.avatar" class="avatarImage" />
+</div>
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+  | Brick Red Path                                                   |
+  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+  | Nueva vista con el mapa aquí abajo, y luego                      |
+  | los productos filtrados con pipe según su estado                 |
+  | - Productos guardados como favoritos de este usuario             |
+  | - Productos en venta                                             |
+  | - Productos vendidos                                             |
+  | - Todos sus productos                                            |
+  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<div class="row" *ngIf="user">
+  <div class="medium-12 columns">
+    <button (click)="goBack()" class="warning button expanded">Volver</button>
+  </div>
+</div>
+<div class="medium-12 columns"><h3>Tus favoritos de este usuario</h3>
+  <app-products-collection-list
+    [products]="products"
+    itemsList="favorite"
+  ></app-products-collection-list>
+</div>
+<div class="medium-12 columns"><h3>Productos en venta</h3>
+  <app-products-collection-list
+    [products]="products"
+    itemsList="selling"
+  ></app-products-collection-list>
+</div>
+<div class="medium-12 columns"><h3>Otros productos vendidos</h3>
+  <app-products-collection-list
+    [products]="products"
+    itemsList="sold"
+  ></app-products-collection-list>
+</div>
+<div class="medium-12 columns"><h3>Todos los productos del usuario {{ user?.nick }}</h3>
+  <app-products-collection-list
+    [products]="products"
+  ></app-products-collection-list>
+</div>
