@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 import { Ng2Webstorage } from 'ng2-webstorage';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +29,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserDetailResolveService } from 'app/user-detail-resolve.service';
 import { ProductsCollectionListComponent } from './products-collection-list/products-collection-list.component';
 import { ItemsStatePipe } from './items-state.pipe';
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 | Blue Path                                                        |
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
@@ -56,7 +58,26 @@ import { ItemsStatePipe } from './items-state.pipe';
     HttpModule,
     ConfirmDialogModule,
     AppRoutingModule,
-    Ng2Webstorage
+    Ng2Webstorage,
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    | Google Maps Path                                                 |
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    | Como el usuario tenía latitud y longitud lo he aprovechado       |
+    | Notas:                                                           |
+    |  - Funcionar, funciona. Pero necesita de una apiKey de goole     |
+    |  - Por tiempo no saco esta apiKey a una variable                 |
+    |  ya que la percepción de error / no disponible sería la misma    |
+    |  - Más info                                                      |
+    |     https://angular-maps.com/guides/getting-started/             |
+    |  - Si hay tiempo ver comentario de kyranjamie en                 |
+    |     https://github.com/SebastianM/angular-google-maps/issues/882 |
+    |  - Que lleva a                                                   |
+    |     https://github.com/ArikMaor/extended-define-webpack-plugin   |
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_API'
+    })
+
   ],
   providers: [
     BackendUriProvider,
