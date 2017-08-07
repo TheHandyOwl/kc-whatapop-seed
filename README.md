@@ -4,6 +4,8 @@
 
 Curso Angular 4
 
+----------
+
 # angular4-mobile-test-directions
 
 **Whatapop** es un _amago_ de clon de [Wallapop](http://es.wallapop.com). Sus pretensiones son mucho más humildes que las del conocido portal, pero a la vez contribuyen a una grandiosa causa: que aprendas a familiarizarte con HTML5, CSS3 y Angular.
