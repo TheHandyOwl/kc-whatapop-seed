@@ -1,3 +1,9 @@
+# [Práctica Angular 4][repo]
+
+**Práctica de Angular 4 - KC Mobile Bootcamp V Edición**
+
+Curso Angular 4
+
 # angular4-mobile-test-directions
 
 **Whatapop** es un _amago_ de clon de [Wallapop](http://es.wallapop.com). Sus pretensiones son mucho más humildes que las del conocido portal, pero a la vez contribuyen a una grandiosa causa: que aprendas a familiarizarte con HTML5, CSS3 y Angular.
@@ -219,3 +225,6 @@ Ahora mismo no tenemos muchas opciones para filtrar los productos, ni hablemos y
 Y aquí llegó el **Señor Path**, el que te todo lo puede. O no todo, pero sí que es algo más complicado que los anteriores y por eso lo hago saber. ¿Qué debemos desarrollar en este **Path**? Pues necesitamos tener localizado un punto donde pintar la colección de productos que está vendiendo un usuario concreto. Aportaría mucho valor a **Whatapop** ofrecer la posibilidad de consultar otros productos vendidos por el mismo usuario. ¡Demuestra que sabes hacerlo! ¡Hay una piruleta de colores en juego!
 
 **Pista:** quizá puedas reutilizar algo de código. ¿Recuerdas el componente que mostraba una colección de productos?
+
+
+  [repo]: https://github.com/TheHandyOwl/kc-whatapop-seed
